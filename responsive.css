@@ -22,4 +22,20 @@
     top: 15%;
     bottom: 15%;
   }
+  .sidebar {
+    position: absolute;
+    left: -200px;
+  }
+  .wr-content {
+    display: block;
+    
+    position: relative;
+  }
+  #logo {
+    margin: auto;
+    padding-left: 10px;
+}
+  .menu{
+    display: none;
+  }
 }
