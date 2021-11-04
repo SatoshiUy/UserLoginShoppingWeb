@@ -1,0 +1,37 @@
+[
+    {   
+        "id" : "MA29",
+        "name": "Macbook Air 128GB",
+        "price": 29000000,
+        "src": "https://images.fpt.shop/unsafe/fit-in/800x800/filters:quality(90):fill(white):upscale()/fptshop.com.vn/Uploads/Originals/2020/11/12/637407967465471535_mba-2020-gold-1.png",
+        "des": "mac"
+    },
+ 
+    {
+        "id" : "MP1666",
+        "name": "Macbook Pro 16inch M1 Max",
+        "price": 60000000,
+        "src": "https://images.fpt.shop/unsafe/fit-in/800x800/filters:quality(90):fill(white):upscale()/fptshop.com.vn/Uploads/Originals/2021/10/19/637702684259566248_macbook-pro-16-2021-bac-1.jpg",
+        "des": "mac"
+    },
+ 
+{ "id": "MP1340",
+    "name": "Macbook Pro 13inch M1",
+    "price": 40000000,
+    "src": "https://images.fpt.shop/unsafe/fit-in/800x800/filters:quality(90):fill(white):upscale()/fptshop.com.vn/Uploads/Originals/2020/11/12/637408000895490753_mbp-2020-m1-gray-2.png",
+    "des":  "mac"    
+},
+ 
+{   "id": "IPP35",
+    "name": "iPad Pro 12.9 2021 M1 Wi-Fi 5G 128GB",
+    "price": 35000000,
+    "src": "https://images.fpt.shop/unsafe/fit-in/800x800/filters:quality(90):fill(white):upscale()/fptshop.com.vn/Uploads/Originals/2021/4/21/637546068956139190_ipad-pro-12-9-cell-xam-1.jpg",
+    "des":   "ipad"  
+},
+ 
+{   "id": "IP13",
+    "name": "iPhone 13 128GB",
+    "price": 25000000,
+    "src": "https://images.fpt.shop/unsafe/fit-in/800x800/filters:quality(90):fill(white):upscale()/fptshop.com.vn/Uploads/Originals/2021/9/15/637673230231791121_iphone-13-mini-den-1.jpg",
+    "des": "iphone"
+}]

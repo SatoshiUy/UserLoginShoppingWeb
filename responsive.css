@@ -1,0 +1,25 @@
+
+
+
+/* PC: width >= 1024px */ 
+@media only screen and (min-width:1024px){
+ 
+}
+
+/* Tablet: width >= 740px and width < 1024px */
+@media only screen and (min-width:740px) and (max-width:1023px){
+
+}
+
+/* Mobile: width < 740px */
+@media only screen and (max-width:739px){
+  .header__cart-list-item {
+    padding: 0px 10px;
+    height: 80vh;
+    overflow: auto;
+}
+  .header__cart-list {
+    top: 15%;
+    bottom: 15%;
+  }
+}
