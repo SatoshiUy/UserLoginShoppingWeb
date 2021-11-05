@@ -1,0 +1,38 @@
+.history-title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5vh;
+}
+
+
+.history-container {
+    display: grid;
+    padding-left: 10%;
+    padding-right: 10%;
+    grid-template-columns: repeat(4, 25%);
+    min-height: 100vh;
+}
+
+#productInfo {
+    grid-column: 1/4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#date {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.history-img{
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100px;
+    width: 100px;
+}
+
+

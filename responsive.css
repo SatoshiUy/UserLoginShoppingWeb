@@ -22,10 +22,10 @@
     top: 15%;
     bottom: 15%;
   }
-  .sidebar {
+  /* .sidebar {
     position: absolute;
     left: -200px;
-  }
+  } */
   .wr-content {
     display: block;
     
@@ -37,5 +37,30 @@
 }
   .menu{
     display: none;
+  }
+  .sb-menu{
+    display: flex;
+    flex-flow: row wrap;
+  }
+  #logo, .sidebar {
+    width: 100%;
+    margin: 5px;
+  }
+  /* .mac-title, .iphone-title, .ipad-title {
+    margin: 0 auto;
+} */
+.wr-content .container{
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .wr-content .sb-menu{
+    padding: 0 10px;
+    margin: 0 10px;
+  }
+  .sidebar{
+    border-bottom: 1px solid #a8a9ac;
+    margin-bottom: 30px;
   }
 }

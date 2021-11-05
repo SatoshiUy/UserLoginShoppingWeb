@@ -12,25 +12,30 @@
 #header {
 	border-bottom: 1px solid #a8a9ac;
 }
-#header,
+#header {
+	display: grid;
+	grid-template-columns: 1fr 5fr;
+}
 .wr-content {
 	display: grid;
 	grid-template-columns: 1fr 5fr;
 }
 .wr-content {
     min-height: calc(100vh - 88px);
+
 }
 #logo,
 .sidebar {
 	width: 200px;
 	margin: 5px;
 }
+
 #logo {
     margin: auto;
     padding-left: 36px;
     
 }
-.logout{
+.logout,.delete-cart{
     text-decoration: none;
 	text-transform: uppercase;
     background-color: #ff623d;
@@ -39,13 +44,24 @@
     border-radius: 6px;
     font-weight: bold;
     color: white;
+    cursor: pointer;
     transition: opacity 0.2s ease;
 }
-.logout:hover{
+.logout:hover,.delete-cart:hover{
     opacity: 0.7;
 }
 
-    
+/* opacity layout */
+.opacity{
+    position: fixed;
+    top:0;
+    bottom: 0;
+    left:0;
+    right:0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
 .menu {
 	display: flex;
 	list-style: none;
@@ -60,8 +76,7 @@
 
 	font-weight: 600;
 }
-.menu > li:hover,
-.active {
+.menu > li:hover {
 	border-bottom: 3px solid #333;
 }
 #header .container {
@@ -80,11 +95,6 @@
 }
 .sidebar {
 	padding: 0px 12px 0px 12px;
-}
-.mac-box,
-.iphone-box,
-.ipad-box{
-    padding: 12px 0px 12px 0px;
 }
 .sb-menu {
 	list-style: none;
@@ -110,7 +120,7 @@
 .container .product {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, 250px);
-	grid-gap: 30px;
+	grid-gap: 5vw;
 	/* justify-content: center; */
 	margin-bottom: 30px;
 }
@@ -222,6 +232,7 @@
 }  
 .header__cart-heading{
     margin: auto;
+    flex-basis: 40%;
 }
 
 /* Start Cart */
@@ -239,18 +250,6 @@
     font-size: 20px;
 }
 
-.header__cart-notice{
-    
-    position: absolute;
-    background-color: white;
-    padding: 1px 6px;
-    font-size: 1.2rem;
-    border-radius: 50px;
-    top: -6px;
-    right: 0px;
-    border: 2px solid red;
-    font-weight: 800;
-}
 /*  */
 .header__cart-list{
     z-index: 1;
@@ -263,7 +262,7 @@
     right: 40px;
     bottom: 40px;
     background-color: white;
-    border: 5px solid black;
+    border: 5px solid #a8a9ac;
     border-radius: 20px;
     flex-flow: column;
     justify-content: space-between;
@@ -272,7 +271,6 @@
 .cart-open{
     display: flex;
 }
-
 
 
 .header__cart-list-item{
@@ -377,6 +375,8 @@
     cursor: pointer;
     background-color: #ff623d;
     transition: opacity 0.2s ease;
+    font-weight: bold;
+    color: white;
 }
 /* End Cart */
 

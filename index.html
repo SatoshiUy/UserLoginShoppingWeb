@@ -4,9 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="indexstyle.css" />
-    <link rel="stylesheet" href="./responsive.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./indexstyle.css" />
+    <link rel="stylesheet" href="./responsive.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="filter.js" defer></script>
     <script src="main.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,177 +30,103 @@
         <div id="logo">
           <a href=""><img src="img/apple-logo.png" alt="" /></a>
         </div>
-        
+
         <div class="container">
           <ul class="menu">
             <li class="active"><a href="">Shopping</a></li>
-            <li><a href="#">Blog</a></li>
+            <li><a href="history.html">History</a></li>
             <li><a href="#">Contact</a></li>
           </ul>
           <!-- button -->
           <button class="logout" onclick="logout()">Logout</button>
           <!-- Cart layout -->
+          <div id="layout-opacity" class=""></div>
           <div id="cart">
             <div id="layout-opacity" class=""></div>
             <div class="header__cart-wrap">
               <div class="header__cart-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path d="M10 19.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5zm3.5-1.5c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm1.336-5l1.977-7h-16.813l2.938 7h11.898zm4.969-10l-3.432 12h-12.597l.839 2h13.239l3.474-12h1.929l.743-2h-4.195z"/></svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="45"
+                  height="45"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M10 19.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5zm3.5-1.5c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm1.336-5l1.977-7h-16.813l2.938 7h11.898zm4.969-10l-3.432 12h-12.597l.839 2h13.239l3.474-12h1.929l.743-2h-4.195z"
+                  />
+                </svg>
               </div>
               <div class="header__cart-list">
                 <div class="cart-header">
+                  <button class="delete-cart" onclick="deleteCart();">
+                    Delete All
+                  </button>
                   <div class="header__cart-heading">Shopping Cart</div>
                   <div class="close-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"
+                      />
+                    </svg>
                   </div>
                 </div>
-                <ul class="header__cart-list-item">
-
-                </ul>
-              <div class="header__total">
-                <div class="total-container">
-                  <span>Total:</span>
-                  <span class="total"></span>
+                <ul class="header__cart-list-item"></ul>
+                <div class="header__total">
+                  <div class="total-container">
+                    <span>Total:</span>
+                    <span class="total"></span>
+                  </div>
+                  <button class="header__cart-btn" onclick="purchase();">THANH TOÁN</button>
                 </div>
-                <button class="header__cart-btn">THANH TOÁN</button>
-              </div>
               </div>
             </div>
           </div>
-
-          
 
           <!--  -->
         </div>
       </div>
       <div class="wr-content">
         <div class="sidebar">
-          <div class="box">
+          <div class="category">
             <h2 class="title">Categories</h2>
           </div>
           <ul class="sb-menu">
-            <li>
-              <input type="checkbox" name="ALL" id="all" value="" /><label
-                for="all"
-                >ALL</label
-              >
-            </li>
-            <li>
-              <input type="checkbox" name="mac" id="mac" value="" /><label
-                for="mac"
-                >MACBOOK</label
-              >
-            </li>
-            <li>
-              <input type="checkbox" name="iphone" id="iphone" value="" /><label
-                for="iphone"
-                >IPHONE</label
-              >
-            </li>
-            <li>
-              <input type="checkbox" name="ipad" id="ipad" value="" /><label
-                for="ipad"
-                >IPAD</label
-              >
-            </li>
+            <li class="filter select" id="all">ALL</li>
+            <li class="filter" id="mac">MACBOOK</li>
+            <li class="filter" id="ipad">IPAD</li>
+            <li class="filter" id="iphone">IPHONE</li>
           </ul>
         </div>
         <div class="container">
-          <div class="content">
-            <div class="mac-box">
-              <div class="mac-title">
-                <h2>MACBOOK</h2>
-              </div>
-              <div class="product">
-                <!-- <div class="product-item">
-                  <div class="product-img">
-                    <a href=""
-                      ><image
-                        class="product-img"
-                        src="https://images.fpt.shop/unsafe/fit-in/800x800/filters:quality(90):fill(white):upscale()/fptshop.com.vn/Uploads/Originals/2020/11/12/637407967465471535_mba-2020-gold-1.png"
-                      ></image
-                    ></a>
-                  </div>
-                  <div class="product-name">
-                    <a href="">Macbook Air 128GB</a>
-                  </div>
-                  <div class="produc-price">
-                    29.000.123đ <span class="discount">(- 25%)</span>
-                  </div>
-                  <div class="add">
-                    <a class="btn-cart" onclick="addToCart()">ADD</a>
-                  </div>
-                </div> -->
-                <!-- <div class="product-item">
-                  <div class="product-img">
-                    <a href=""
-                      ><image
-                        class="product-img"
-                        src="https://images.fpt.shop/unsafe/fit-in/800x800/filters:quality(90):fill(white):upscale()/fptshop.com.vn/Uploads/Originals/2020/11/12/637407967465471535_mba-2020-gold-1.png"
-                      ></image
-                    ></a>
-                  </div>
-                  <div class="product-name">
-                    <a href="">Macbook Air 128GB</a>
-                  </div>
-                  <div class="produc-price">
-                    29.000.000đ <span class="discount">(- 25%)</span>
-                  </div>
-                  <div class="add">
-                    <a class="btn-cart" onclick="addToCart()">ADD</a>
-                  </div>
-                </div> -->
-              </div>
+          <div class="mac-box box">
+            <div class="mac-title">
+              <h2>MACBOOK</h2>
             </div>
-
-            <div class="ipad-box">
-              <div class="ipad-title">
-                <h2>IPAD</h2>
-              </div>
-              <div class="product">
-                <!-- <div class="product-item">
-                  <div class="product-img">
-                    <image
-                      class="product-img"
-                      src="https://images.fpt.shop/unsafe/fit-in/800x800/filters:quality(90):fill(white):upscale()/fptshop.com.vn/Uploads/Originals/2021/9/15/637673217819795830_iphone-13-pro-max-xam-1.jpg"
-                    ></image>
-                  </div>
-                  <div class="product-name">
-                    <a href="">iPhone 13 Pro Max 128GB</a>
-                  </div>
-                  <div class="produc-price">
-                    34.000.000đ <span class="discount">(- 25%)</span>
-                  </div>
-                  <div class="add">
-                    <a class="btn-cart" onclick="addToCart()">ADD</a>
-                  </div>
-                  IP13PM
-                </div> -->
-              </div>
+            <div class="product">
+              <!-- mac -->
             </div>
+          </div>
 
-            <div class="iphone-box">
-              <div class="iphone-title">
-                <h2>IPHONE</h2>
-              </div>
-              <div class="product">
-                <!-- <div class="product-item">
-                  <div class="product-img">
-                    <image
-                      class="product-img"
-                      src="https://images.fpt.shop/unsafe/fit-in/800x800/filters:quality(90):fill(white):upscale()/fptshop.com.vn/Uploads/Originals/2021/4/21/637546068956139190_ipad-pro-12-9-cell-xam-1.jpg"
-                    ></image>
-                  </div>
-                  <div class="product-name">
-                    <a href="">iPad Pro 12.9 2021 M1 Wi-Fi 5G 128GB</a>
-                  </div>
-                  <div class="produc-price">
-                    35.000.000đ <span class="discount">(- 25%)</span>
-                  </div>
-                  <div class="add">
-                    <a class="btn-cart" onclick="addToCart()">ADD</a>
-                  </div>
-                </div> -->
-              </div>
+          <div class="ipad-box box">
+            <div class="ipad-title">
+              <h2>IPAD</h2>
+            </div>
+            <div class="product">
+              <!-- ipad -->
+            </div>
+          </div>
+          
+          <div class="iphone-box box">
+            <div class="iphone-title">
+              <h2>IPHONE</h2>
+            </div>
+            <div class="product">
+              <!-- iphone -->
             </div>
           </div>
         </div>
@@ -204,5 +137,6 @@
         </div>
       </div>
     </div>
+    <!-- <script src="./main.js"></script> -->
   </body>
 </html>

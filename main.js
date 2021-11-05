@@ -2,14 +2,16 @@ const macBox = document.getElementsByClassName("mac-box")[0];
 const iphoneBox = document.getElementsByClassName("iphone-box")[0];
 const ipadBox = document.getElementsByClassName("ipad-box")[0];
 const cartList = document.getElementsByClassName("header__cart-list-item")[0];
+const layout=document.getElementById("layout-opacity");
 var totalBox = document.getElementsByClassName("total")[0];
 
-var products,updateProducts;
+var products,updateProducts,moneyPurchase=0;
 // open cart
 const cartOpen = document.getElementsByClassName("header__cart-icon")[0];
 cartOpen.addEventListener("click",function(event){
     let open = document.getElementsByClassName("header__cart-list")[0];
     open.classList.add("cart-open");
+    layout.classList.add("opacity");
     updateCart();
     event.stopPropagation();
 });
@@ -18,6 +20,7 @@ const cartClose = document.getElementsByClassName("close-icon")[0];
 cartClose.addEventListener("click",function(event){
     let close = document.getElementsByClassName("header__cart-list")[0];
     close.classList.remove("cart-open");
+    layout.classList.remove("opacity");
     event.stopPropagation();
 });
 
@@ -41,9 +44,9 @@ function addProductToWeb(object){
     newElement.classList.add("product-item")
     
     newElement.innerHTML=`
-        <div class="product-img">  <a href=""><image class="product-img" src="${object.src}"></image></a></div>
-        <div class="product-name"><a href="">${object.name}</a></div>
-        <div class="produc-price">${formatMoney(object.price) + "đ"}<span class="discount">(- 25%)</span></div>
+        <div class="product-img"><image class="product-img" src="${object.src}"></image></div>
+        <div class="product-name">${object.name}</div>
+        <div class="produc-price">${formatMoney(object.price) + "đ"}<span class="discount"></span></div>
         <div class="add" onclick="showSuccessToast();" id="${object.id}"><a class="btn-cart">ADD</a></div>
     `;
     // add to cart when we click "add"
@@ -185,9 +188,11 @@ function printItemCart(){
         }
         // print total
         totalBox.innerHTML = formatMoney(total) + "đ";
+        moneyPurchase = total;
     }
 }
 
+// delete product in Cart
 const deleteProduct = async (product) => {
     // get cart information from user
     const response = await fetch('https://61814ec932c9e20017804764.mockapi.io/users?token=' + window.localStorage.getItem("UAT"));
@@ -207,6 +212,59 @@ const deleteProduct = async (product) => {
     })
     location.reload();
 }
+
+// delete all products in cart
+const deleteCart = async () => {
+    // get cart information from user
+    const response = await fetch('https://61814ec932c9e20017804764.mockapi.io/users?token=' + window.localStorage.getItem("UAT"));
+    let user = await response.json(); //extract JSON from the http response
+    const newCart = {};
+
+    // update cart to Mock API
+    const response2 = await fetch('https://61814ec932c9e20017804764.mockapi.io/users/'+ user[0].id, {
+        method: 'PUT',
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
+           },
+        body: JSON.stringify({
+            cart: newCart,
+        })
+    })
+    location.reload();
+}
+
+// purchase
+const purchase = async() => {
+    const response = await fetch('https://61814ec932c9e20017804764.mockapi.io/users?token=' + window.localStorage.getItem("UAT"));
+    const user = await response.json();
+
+    const date = new Date();
+    // console.log(user[0].cart, moneyPurchase);
+    updateHistory(user[0].id,user[0].cart, date.toLocaleString(), moneyPurchase);
+    // deleteCart();
+    // alert("Ban da mua thanh cong");
+
+}
+// update History
+const updateHistory = async (user, products, curDate, money) => {
+    const response = await fetch('https://61814ec932c9e20017804764.mockapi.io/history', {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8' // Indicates the content
+           },
+        body: JSON.stringify({
+            userId: user,
+            productId: products,
+            date: curDate,
+            money: money
+        })
+    });
+    const history = await response.json(); //extract JSON from the http response
+    console.log(history);
+}
+
+
+
 function toast(object)  {
     const main = document.getElementById('toast');
     if (main) {
@@ -250,7 +308,7 @@ function showSuccessToast() {
         title: 'Success',
         messenger: 'Add To Cart Successful',
         type: 'success',
-        duration: 5000
+        duration: 1000
 });
 }
 
@@ -259,5 +317,6 @@ function start(){
     checkLogin();
     readJson();
     updateCart();
+    filter();
 }
 window.onload = start;
