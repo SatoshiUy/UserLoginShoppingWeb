@@ -56,11 +56,25 @@
     align-items: center;
   }
   .wr-content .sb-menu{
-    padding: 0 10px;
-    margin: 0 10px;
+    
   }
   .sidebar{
     border-bottom: 1px solid #a8a9ac;
     margin-bottom: 30px;
+  }
+  .toast {
+  min-width: 100px;
+  }
+  .header__cart-heading {
+    font-size: 15px;
+  }
+  .cart-title{
+    font-size: 16px;
+  }
+  .cart-price{
+    font-size: 10px;
+  }
+  .header__cart-del {
+    padding: 5px;
   }
 }
