@@ -64,7 +64,7 @@ function addProductToWeb(object) {
         }<span class="discount"></span></div>
         <div class="add" onclick="showSuccessToast();" id="${
           object.id
-        }"><a class="btn-cart">ADD</a></div>
+        }"><a class="btn-cart">ADD TO CART</a></div>
     `;
   // add to cart when we click "add"
   newElement
