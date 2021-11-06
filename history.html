@@ -5,7 +5,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="indexstyle.css" />
+        <link rel="stylesheet" href="./indexstyle.css" />
         <link rel="stylesheet" href="./responsive.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <script src="history.js" defer></script>
@@ -20,6 +20,7 @@
     </head>
     <body>
             <div id="wrapper">
+              <div id="toast"></div>
               <div id="header">
                 <div id="logo">
                   <a href=""><img src="img/apple-logo.png" alt="" /></a>
@@ -31,6 +32,10 @@
                     <li><a href="history.html">History</a></li>
                     <li><a href="#">Contact</a></li>
                   </ul>
+                  <div class="mobile" style="top: 32px;">
+                    <div id="name" style="margin: auto; font-size: 10px; font-weight: 500; margin-right: 10px"></div>
+                    <button class="logout" onclick="deleteHistory(); showSuccessToast();">Delete All History</button>
+                  </div>
                 </div>
               </div>
               <div class="history-title"> History</div>

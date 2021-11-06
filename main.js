@@ -3,10 +3,13 @@ const iphoneBox = document.getElementsByClassName("iphone-box")[0];
 const ipadBox = document.getElementsByClassName("ipad-box")[0];
 const cartList = document.getElementsByClassName("header__cart-list-item")[0];
 const layout = document.getElementById("layout-opacity");
+const nameBox = document.getElementById("name");
+
 var totalBox = document.getElementsByClassName("total")[0];
 var products,
   updateProducts,
-  moneyPurchase = 0;
+  moneyPurchase = 0,
+  usernameBox;
 
 // open cart
 const cartOpen = document.getElementsByClassName("header__cart-icon")[0];
@@ -48,6 +51,15 @@ function getJsonData(data) {
     addProductToWeb(data[i]);
   }
 }
+
+const printName= async () => {
+  const response = await fetch(
+    "https://61814ec932c9e20017804764.mockapi.io/users?token=" +
+      window.localStorage.getItem("UAT")
+  );
+  let user = await response.json(); //extract JSON from the http response
+  nameBox.innerHTML = `Account: ${user[0].username}`;
+};
 
 function addProductToWeb(object) {
   let product = eval(object.des + "Box").getElementsByClassName("product")[0];
@@ -354,6 +366,7 @@ function purchaseToast() {
 function start() {
   checkLogin();
   readJson();
+  printName();
   updateCart();
   filter();
 }
